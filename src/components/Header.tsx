@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { GlobalStateContext } from "../context/GlobalStateContext";
-import dribbbleIcon from "../assets/dribbble.svg";
-import hamburger from "../assets/hamburger.svg";
-import close from "../assets/close.svg";
+import dribbbleIcon from "../assets/images/dribbble.svg";
+import hamburger from "../assets/images/hamburger.svg";
+import close from "../assets/images/close.svg";
 import { FaAngleDown } from "react-icons/fa";
 import { FiSearch } from "react-icons/fi";
 import { Link } from "react-router-dom";

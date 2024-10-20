@@ -1,4 +1,4 @@
-import dribbleIcon from "../assets/dribbble.svg"
+import dribbleIcon from "../assets/images/dribbble.svg"
 import { FaTwitter } from "react-icons/fa";
 import { IoLogoFacebook } from "react-icons/io";
 import { FaInstagram } from "react-icons/fa6";

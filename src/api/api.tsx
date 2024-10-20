@@ -1,18 +1,18 @@
 import axios from 'axios';
 import bcrypt from "bcryptjs";
-
+import { User, Artist } from '../types/Common.types';
 //Fetch all artists
-export const fetchArtists = async() =>{
+export const fetchArtists = async() : Promise<Artist[]> =>{
     const response = await axios.get('http://localhost:3001/artists');
     return response.data;
 }
 
 
 // Function to register a new user
-export const registerUser = async (fullname, username, email, password) => {
+export const registerUser = async (fullname:string, username:string, email:string, password:string) : Promise<User> => {
   try {
     const response = await fetch("http://localhost:3001/users");
-    const users = await response.json();
+    const users:User[] = await response.json();
 
     // Checking for duplicate username or email
     const isDuplicate = users.some(

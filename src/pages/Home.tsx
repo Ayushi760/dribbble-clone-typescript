@@ -4,7 +4,7 @@ import { GlobalStateContext } from "../context/GlobalStateContext";
 import CallToAction from "../components/CallToAction";
 import CategorySlider from "../components/CategorySlider";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";

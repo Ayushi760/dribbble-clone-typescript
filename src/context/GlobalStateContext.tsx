@@ -1,19 +1,23 @@
 import { createContext, useEffect, useReducer } from "react";
+import { State, Action, GlobalStateProviderProps } from "../types/GlobalStateContext.types";
 
-export const GlobalStateContext = createContext();
-
-const initialState = {
+const initialState: State = {
   users: [],
-  currentUser: JSON.parse(localStorage.getItem("currentUser")) || null,
-  isAuthenticated: JSON.parse(localStorage.getItem("currentUser"))
+  categories: [],
+  currentUser: JSON.parse(localStorage.getItem("currentUser") || "null"),
+  isAuthenticated: JSON.parse(localStorage.getItem("currentUser") || "null")
     ? true
     : false,
   loading: false,
   error: null,
-  categories: []
 };
 
-const globalReducer = (state, action) => {
+export const GlobalStateContext = createContext<{
+  state: State;
+  dispatch: React.Dispatch<Action>;
+}>({ state: initialState, dispatch: () => {} });
+
+const globalReducer = (state: State, action: Action): State => {
   switch (action.type) {
     case "REGISTER":
       return {
@@ -52,11 +56,12 @@ const globalReducer = (state, action) => {
   }
 };
 
-export const GlobalStateProvider = ({ children }) => {
+export const GlobalStateProvider: React.FC<GlobalStateProviderProps> = ({ children }) => {
   const [state, dispatch] = useReducer(globalReducer, initialState);
 
   useEffect(() => {
     if (state.currentUser) {
+      console.log(state.currentUser);
       localStorage.setItem("currentUser", JSON.stringify(state.currentUser));
     } else {
       localStorage.removeItem("currentUser");
